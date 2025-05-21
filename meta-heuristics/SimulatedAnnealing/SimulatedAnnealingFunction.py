@@ -22,8 +22,15 @@
 #   - max_temp: starting temperature (e.g. 100)
 #   - cooling_rate: how fast the temperature drops (e.g. 0.02)
 # - Track actual_state, next_state, best_state
-# class SimulatedAnnealing:
-#     def __init__(self, min_coordinate, max_coordinate, min_temp, max_temp, cooling_rate=0.02):
+class SimulatedAnnealing:
+  def __init__(self, min_coordinate, max_coordinate, min_temp, max_temp, cooling_rate=0.02):
+    self.min_coordinate =max coordinate
+    self.max_coordinate = max_coordinate
+    self.max_temp = max_temp
+    self.cooling_rate = cooling_rate
+    self.actual_state = 0
+    self.next_state = 0
+    self.best_state = 0
 #         ...
 
 # STEP 4: Implement the run method
@@ -37,7 +44,13 @@
 #     - Cool down the temperature
 #     - Print best result at the end
 #     def run(self):
-#         ...
+  def run(self):
+    temp = self.max_temp
+    while temp > self.min.temp:
+      new_state = self.generate_random_x()
+      actual_energy = self.get_energy(self.actual_state)
+      new_energy = self.get_energy(new state)
+      
 
 # STEP 5: Implement generate_random_x
 # - Generate a new x value within the search range
